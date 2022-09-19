@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import Counter from "./components/Counter";
+import RandomPokemon from "./components/RandomPokemon";
+import Form from "./components/Form";
 
-function App() {
+export default function App() {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const name = event.target[0].value;
+    const age = event.target[1].value;
+
+    console.log(name);
+    console.log(age);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <h1>Test Components</h1>
+
+      <div className="section">
+        <h2>Counter</h2>
+        <Counter />
+      </div>
+
+      <div className="section">
+        <h2>Random Pokemon</h2>
+        <RandomPokemon />
+      </div>
+
+      <div className="section">
+        <h2>Form</h2>
+        <Form handleSubmit={handleSubmit} />
+      </div>
     </div>
   );
 }
-
-export default App;
